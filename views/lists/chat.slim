@@ -1,0 +1,17 @@
+a href="/reg_confirm" Back to start menu
+
+form action="/#{reciever_id}/chat" method="post"
+    input type="text" placeholder="Skriv ditt meddelande..." name="message"/
+    input type="submit" value="Skicka"/
+
+- if result != []
+    - result.each do |item|
+        - if item['reciever_id'].to_i == reciever_id.to_i
+            div style="background: blue; margin-top: 5px;"
+                p = item["content"]
+                p style="font-size: 0.7em;" = item["timestamp"]
+
+        - else
+            div style="background: gray; margin-top: 5px;"
+                p = item["content"]
+                p style="font-size: 0.7em;" = item["timestamp"]
