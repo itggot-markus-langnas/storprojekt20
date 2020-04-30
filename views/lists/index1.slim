@@ -5,6 +5,7 @@ a href="/" log out
 form action="/search_user" method="post"
     input type="text" placeholder="Sök efter användare..." name="username"/
     input type="submit" value="Sök"/
+    input type="submit" value="Create group"/
 
 
 h1 Användare
@@ -13,4 +14,7 @@ ol
   - chatt.each do |item|
     li = item["username"]
     form action="/#{item['id']}/chat" method="get"
-        button type="submit" value="CHATTA" CHATTA
+      button type="submit" value="CHATTA" CHATTA
+    - if admin == true
+      form method="post" action="/#{item['id']}/delete"
+        button type="submit" Delete User

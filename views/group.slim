@@ -1,0 +1,16 @@
+
+a href="/reg_confirm" Back to start menu
+
+
+form action="/search_user" method="post"
+    input type="text" placeholder="Sök efter användare..." name="username"/
+    input type="submit" value="Sök"/
+
+
+h1 Användare
+
+ol
+  / - results.each do |item|
+    li = item["username"]
+    form action="/#{item['id']}/group" method="get"
+      button type="submit" value="Add" Add
